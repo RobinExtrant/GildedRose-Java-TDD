@@ -15,28 +15,20 @@ public class GildedRoseTest
 	}
 */
 	@Test
-	public void updateItemsEachDay()
+	public void testItemUpdatedForEachDay()
 	{
-		
 		Item item = new Item("+5 Dexterity Vest", 10, 20);
-		for (int numDay=0;numDay<=1;numDay++)
-			{
-				GildedRose.updateItem(item);
-			}
-		assertEquals(item.getQuality(),18);
-		assertEquals(item.getSellIn(),8);
+		GildedRose.updateItem(item);
+		assertEquals(item.getQuality(),19);
+		assertEquals(item.getSellIn(),9);
 	}
 	
 	@Test
-	public void updateItemsEachDayWhenSellInIsNegative()
-	{
-		
+	public void testItemUpdatedForEachDayWhenSellInIsNegative()
+	{	
 		Item item = new Item("Sulfuras, Hand of Ragnaros", -1, 80);
-		for (int numDay=0;numDay<=1;numDay++)
-			{
-				GildedRose.updateItem(item);
-			}
-		assertEquals(item.getQuality(),76);
-		assertEquals(item.getSellIn(),-3);
+		GildedRose.updateItem(item);
+		assertEquals(item.getQuality(),78);
+		assertEquals(item.getSellIn(),-2);
 	}
 }
