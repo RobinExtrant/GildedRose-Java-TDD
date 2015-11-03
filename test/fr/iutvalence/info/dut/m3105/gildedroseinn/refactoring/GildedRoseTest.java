@@ -26,4 +26,17 @@ public class GildedRoseTest
 		assertEquals(item.getQuality(),18);
 		assertEquals(item.getSellIn(),8);
 	}
+	
+	@Test
+	public void updateItemsEachDayWhenSellInIsNegative()
+	{
+		
+		Item item = new Item("Sulfuras, Hand of Ragnaros", -1, 80);
+		for (int numDay=0;numDay<=1;numDay++)
+			{
+				GildedRose.updateItem(item);
+			}
+		assertEquals(item.getQuality(),76);
+		assertEquals(item.getSellIn(),-3);
+	}
 }
